@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Traffic</title>
+<style>
+	#main {
+		display: block;
+		width: 960px;
+		height: 640px;
+		border: 10px solid #eee;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.container {
+		margin: 2em auto;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<canvas id="main" width="960" height="640"></canvas>
+	</div>
+
+	<script src="angle.js"></script>
+	<script src="car.js"></script>
+	<script src="render.js"></script>
+	<script>
+		for (var i = 0; i < 10; i++) {
+			new Car();
+		}
+	</script>
+</body>
+</html>
