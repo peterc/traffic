@@ -21,17 +21,17 @@ Car.prototype.tick = function() {
   this.y += (Math.sin(Angles.toRadians(this.angle)) * this.speed / 30);
 
   if (Math.abs(this.angle - this.targetAngle) > 1) {
-  	this.angle = (this.angle + Angles.directionBetween(this.angle, this.targetAngle)).mod(360);
-  	if (this.speed > 10) { this.speed -= 0.25; }
+    this.angle = (this.angle + Angles.directionBetween(this.angle, this.targetAngle)).mod(360);
+    if (this.speed > 10) { this.speed -= 0.25; }
   } else {
-  	if (this.speed < 70) { this.speed++; }
+    if (this.speed < 70) { this.speed++; }
   }
 
   if (this.x < 0 || this.x > canvasElement.width || this.y < 0 || this.y > canvasElement.height) {
-  	//this.targetAngle = (this.targetAngle + 180).mod(360);
-  		this.x = Math.random() * canvasElement.width;
+    //this.targetAngle = (this.targetAngle + 180).mod(360);
+      this.x = Math.random() * canvasElement.width;
   this.y = Math.random() * canvasElement.height;
-  	this.targetAngle = Math.random() * 360;
+    this.targetAngle = Math.random() * 360;
 
   }
 }
@@ -39,7 +39,7 @@ Car.prototype.tick = function() {
 Car.prototype.render = function() {
   canvas.save();
   canvas.translate(this.x, this.y);
-  //canvas.rotate(Angles.toRadians(-90));	
+  //canvas.rotate(Angles.toRadians(-90)); 
   canvas.beginPath();
   canvas.moveTo(0, 0);
   canvas.lineTo(100 * Math.cos(Angles.toRadians(this.targetAngle)), 100 * Math.sin(Angles.toRadians(this.targetAngle)));
