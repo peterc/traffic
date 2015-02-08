@@ -15,6 +15,9 @@ var Angles = {
     var diff = this.differenceBetween(a, b);
     return diff > 0 ? 1 : diff < 0 ? -1 : 0;
   },
-  toRadians: function(a) { return a * (Math.PI / 180); },
-  toDegrees: function(a) { return a * (180 / Math.PI); },
+  toRadians: function(a) { return a * 0.01745329; },
+  toDegrees: function(a) { return a * 57.2957795; },
+  between: function(x1, y1, x2, y2) {
+    return this.toDegrees(Math.atan2(y2 - y1, x2 - x1)).toFixed(2);
+  }
 }

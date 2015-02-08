@@ -1,6 +1,7 @@
 var frames = 0;
 var objects = [];
 var lastTime = Date.now();
+var running = false;
 
 var canvasElement = document.getElementById('main');
 var canvas = canvasElement.getContext('2d');
@@ -8,8 +9,10 @@ var canvas = canvasElement.getContext('2d');
 var loop = function() {
   frames++;
 
-  for (object of objects) {
-    object.tick();
+  if (running) {
+    for (object of objects) {
+      object.tick();
+    }
   }
 
   requestAnimationFrame(loop);
@@ -30,3 +33,12 @@ var loop = function() {
 }
 
 loop();
+
+canvasElement.addEventListener('click', function(e) {
+  if (running) {
+    running = false;
+  } else {
+    running = true;
+  }
+
+}, false);
